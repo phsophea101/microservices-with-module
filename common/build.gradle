@@ -1,0 +1,24 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.6'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+ext {
+    springCloudVersion = '2021.0.4'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+dependencies {
+//    implementation project(':model')
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
+}
